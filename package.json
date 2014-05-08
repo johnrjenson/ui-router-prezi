@@ -1,0 +1,14 @@
+{
+	"name": "ui-router-prezi",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/johnrjenson/ui-router-prezi.git"
+	},
+	"devDependencies": {
+		"grunt-contrib-connect": "^0.7.1"
+	},
+	"scripts": {
+		"preinstall": "npm install grunt-cli && npm install bower && bower install"
+	}
+}
