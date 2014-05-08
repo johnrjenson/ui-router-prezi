@@ -24,9 +24,9 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li ng-class="{active: $location.path() == '/home'}"><a href="#/home">Home</a></li>
-					<li ng-class="{active: $location.path() == '/about'}"><a href="#/about">About</a></li>
-					<li ng-class="{active: $location.path() == '/contacts'}"><a href="#/contacts">Contacts</a></li>
+					<li ng-class="{active: $state.includes('home')}"><a ui-sref="home">Home</a></li>
+					<li ng-class="{active: $state.includes('about')}"><a ui-sref="about">About</a></li>
+					<li ng-class="{active: $state.includes('contacts')}"><a ui-sref="contacts">Contacts</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -35,7 +35,7 @@
 	<div class="container">
 		<h1>&nbsp;</h1>
 
-		<div ng-view></div>
+		<div ui-view></div>
 
 	</div> <!-- /container -->
 

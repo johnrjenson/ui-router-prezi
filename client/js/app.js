@@ -1,17 +1,20 @@
-angular.module('app', ['ngRoute']);
+angular.module('app', ['ui.router']);
 
 /**
  * Routes
  */
-angular.module('app').config(function($routeProvider) {
-	$routeProvider.otherwise({redirectTo: '/home'});
-	$routeProvider.when('/home', {
+angular.module('app').config(function($urlRouterProvider, $stateProvider) {
+	$urlRouterProvider.otherwise('/home');
+	$stateProvider.state('home', {
+		url: '/home',
 		templateUrl: 'partials/Home.html'
 	});
-	$routeProvider.when('/about', {
+	$stateProvider.state('about', {
+		url: '/about',
 		templateUrl: 'partials/About.html'
 	});
-	$routeProvider.when('/contacts', {
+	$stateProvider.state('contacts', {
+		url: '/contacts',
 		controller: 'ListContactsController',
 		templateUrl: 'partials/Contacts.html'
 	});
@@ -21,8 +24,8 @@ angular.module('app').config(function($routeProvider) {
  * Controllers
  */
 angular.module('app')
-	.controller('RootController', function($scope, $location) {
-		$scope.$location = $location;
+	.controller('RootController', function($scope, $state) {
+		$scope.$state = $state;
 	});
 angular.module('app')
 	.controller('ListContactsController', function($scope, ContactService) {
