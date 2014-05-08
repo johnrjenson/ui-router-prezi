@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" xmlns="http://www.w3.org/1999/html">
+<html ng-app="app" ng-controller="RootController" xmlns="http://www.w3.org/1999/html">
 	<head>
 		<title>UI Router Prezi</title>
 
@@ -24,9 +24,9 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contacts</a></li>
+					<li ng-class="{active: $location.path() == '/home'}"><a href="#/home">Home</a></li>
+					<li ng-class="{active: $location.path() == '/about'}"><a href="#/about">About</a></li>
+					<li ng-class="{active: $location.path() == '/contacts'}"><a href="#/contacts">Contacts</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -35,11 +35,7 @@
 	<div class="container">
 		<h1>&nbsp;</h1>
 
-		<div ng-include="'partials/Home.html'"></div>
-
-		<div ng-include="'partials/About.html'"></div>
-
-		<div ng-include="'partials/Contacts.html'"></div>
+		<div ng-view></div>
 
 	</div> <!-- /container -->
 
