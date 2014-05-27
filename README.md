@@ -1,4 +1,4 @@
-UI Router Prezo
+UI Router Prezi
 ===============
 To run the project locally run the following:
 

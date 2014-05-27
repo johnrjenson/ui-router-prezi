@@ -5,7 +5,7 @@
 		<a class="list-group-item" ng-repeat="c in contacts"
 		   ui-sref-active="active" ui-sref=".contactCard({contactId:c.contactId})">{{c.name}}</a>
 	</div>
-	<div class="col-md-6 pull-left" ui-view></div>
+	<div class="col-md-6 pull-left" ui-view autoscroll="true"></div>
 	<div class="clearfix"></div>
 	<p>
 		<a class="btn btn-lg btn-primary pull-right" role="button" ui-sref="contactCard({contactId:$stateParams.contactId})">Print Contact Card &raquo;</a>
