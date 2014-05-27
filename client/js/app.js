@@ -23,14 +23,20 @@ angular.module('app').config(function($urlRouterProvider, $stateProvider) {
 		controller: 'ContactCardController',
 		templateUrl: 'partials/ContactCard.html'
 	});
+	$stateProvider.state('contactCard', {
+		url: '/card/:contactId',
+		controller: 'ContactCardController',
+		templateUrl: 'partials/ContactCard.html'
+	});
 });
 
 /**
  * Controllers
  */
 angular.module('app')
-	.controller('RootController', function($scope, $state) {
+	.controller('RootController', function($scope, $state, $stateParams) {
 		$scope.$state = $state;
+		$scope.$stateParams = $stateParams;
 	});
 angular.module('app')
 	.controller('ListContactsController', function($scope, ContactService) {
