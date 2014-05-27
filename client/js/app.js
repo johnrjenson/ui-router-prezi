@@ -18,6 +18,11 @@ angular.module('app').config(function($urlRouterProvider, $stateProvider) {
 		controller: 'ListContactsController',
 		templateUrl: 'partials/Contacts.html'
 	});
+	$stateProvider.state('contacts.contactCard', {
+		url: '/card/:contactId',
+		controller: 'ContactCardController',
+		templateUrl: 'partials/ContactCard.html'
+	});
 });
 
 /**
@@ -30,10 +35,13 @@ angular.module('app')
 angular.module('app')
 	.controller('ListContactsController', function($scope, ContactService) {
 		$scope.contacts = ContactService.getContacts();
-
-		$scope.currentContact = ContactService.getContactById(1);
-
-		$scope.loadContact = function(contactId) {
+	});
+angular.module('app')
+	.controller('ContactCardController', function($scope, $state, $stateParams, ContactService) {
+		var contactId = $stateParams.contactId;
+		if(!contactId) {
+			$state.go('contacts.contactCard', {contactId: 1});
+		} else {
 			$scope.currentContact = ContactService.getContactById(contactId);
 		}
 	});
@@ -84,7 +92,7 @@ angular.module('app')
 				];
 			},
 			getContactById: function(contactId) {
-				return _.findWhere(service.getContacts(), {contactId: contactId});
+				return _.findWhere(service.getContacts(), {contactId: parseInt(contactId)});
 			}
 		};
 		return service;

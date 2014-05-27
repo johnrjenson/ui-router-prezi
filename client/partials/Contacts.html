@@ -2,30 +2,10 @@
 	<h2>Contacts</h2>
 	<p>These are the names of the developers that have have worked with over the last 3 months.</p>
 	<div class="list-group col-md-4 pull-left">
-		<a class="list-group-item" ng-repeat="c in contacts" ng-click="loadContact(c.contactId)"
-		   ng-class="{active:(c.contactId == currentContact.contactId)}">{{c.name}}</a>
+		<a class="list-group-item" ng-repeat="c in contacts"
+		   ui-sref-active="active" ui-sref=".contactCard({contactId:c.contactId})">{{c.name}}</a>
 	</div>
-	<div class="col-md-6 pull-left">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">Contact Card</h3>
-			</div>
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-md-2"><strong>Name:</strong></div>
-					<div class="col-md-10">{{currentContact.fullName}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2"><strong>Role:</strong></div>
-					<div class="col-md-10">{{currentContact.role}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2"><strong>Employer:</strong></div>
-					<div class="col-md-10">{{currentContact.employer}}</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="col-md-6 pull-left" ui-view></div>
 	<div class="clearfix"></div>
 	<p>
 		<a class="btn btn-lg btn-primary pull-right" href="" role="button">Print Contact Card &raquo;</a>
